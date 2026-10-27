@@ -1,0 +1,289 @@
+/* Logo e menu (compartilhados) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--verde);
+  text-decoration: none;
+}
+
+.logo svg {
+  font-size: 1.6rem;
+}
+
+.botao-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--altura-toque);
+  padding: 0.4rem 0.85rem;
+  border: 2px solid var(--verde);
+  border-radius: var(--raio);
+  background: #fff;
+  color: var(--verde);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  min-height: var(--altura-toque);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--raio);
+  color: var(--cor-texto);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+.nav-link[aria-current='page'] {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+  box-shadow: inset 0 -3px 0 var(--verde);
+}
+
+/* Área pública */
+.cab-publico {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.cab-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  min-height: 4rem;
+  padding-block: 0.4rem;
+}
+
+.nav-principal {
+  display: none;
+  flex-basis: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.nav-principal.aberto {
+  display: block;
+}
+
+.nav-principal ul,
+.admin-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40em) {
+  .botao-menu {
+    display: none;
+  }
+  .nav-principal {
+    display: block;
+    flex-basis: auto;
+    padding: 0;
+  }
+  .nav-principal ul {
+    flex-direction: row;
+  }
+}
+
+.rodape {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  background: var(--verde-escuro);
+  color: #e4efe8;
+  font-size: 0.9rem;
+}
+
+.rodape p {
+  margin: 0 0 0.25rem;
+}
+
+/* Login */
+.login {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1.5rem 1rem;
+  background: var(--verde);
+}
+
+.login-cartao {
+  width: 100%;
+  max-width: 26rem;
+  padding: 1.75rem 1.5rem;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+
+.login-cartao h1 {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.login-voltar {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+/* Área administrativa */
+.admin {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--cor-fundo);
+}
+
+.admin-lateral {
+  background: #16241d;
+  color: #fff;
+}
+
+.admin-lateral :focus-visible {
+  outline-color: var(--ambar);
+}
+
+.admin-lateral-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.logo-claro {
+  color: #fff;
+}
+
+.logo-claro:hover {
+  color: #fff;
+}
+
+.logo-sufixo {
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--ambar);
+  border-radius: 999px;
+  color: var(--ambar);
+  font-family: var(--fonte);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.botao-menu-claro {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.admin-nav {
+  display: none;
+  padding: 0 1rem 1rem;
+}
+
+.admin-nav.aberto {
+  display: block;
+}
+
+.admin-nav .nav-link {
+  color: #fff;
+}
+
+.admin-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.admin-nav .nav-link[aria-current='page'] {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: inset 4px 0 0 var(--ambar);
+}
+
+.admin-usuario {
+  margin: 1rem 0 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  color: #d5e2da;
+  overflow-wrap: anywhere;
+}
+
+.botao-claro {
+  width: 100%;
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.botao-claro:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.admin-corpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.faixa-demo p {
+  margin: 0;
+}
+
+.faixa-demo {
+  padding: 0.5rem 1rem;
+  background: #fff7dc;
+  border-bottom: 1px solid #d9a420;
+  color: var(--ambar-texto);
+  font-size: 0.875rem;
+}
+
+.admin-main {
+  padding: 1.25rem 1rem 3rem;
+}
+
+@media (min-width: 56em) {
+  .admin {
+    flex-direction: row;
+  }
+  .admin-lateral {
+    position: sticky;
+    top: 0;
+    flex: none;
+    width: 16rem;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .admin-lateral-topo {
+    padding: 1.25rem 1rem 0.75rem;
+  }
+  .botao-menu-claro {
+    display: none;
+  }
+  .admin-nav {
+    display: block;
+  }
+  .admin-main {
+    padding: 2rem 2rem 3rem;
+  }
+}
+
+.pagina-simples {
+  padding-block: 3rem;
+}

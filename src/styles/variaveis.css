@@ -1,0 +1,30 @@
+/* Identidade visual: verde-garrafa (principal), âmbar (promoções, cor de cerveja)
+   e etiquetas de preço como elemento de destaque. */
+:root {
+  --verde: #14452f;
+  --verde-escuro: #0d2f20;
+  --verde-claro: #e3ebe5;
+  --ambar: #ffd166;
+  --ambar-texto: #3b2a00;
+
+  --cor-fundo: #f1f4f1;
+  --cor-superficie: #ffffff;
+  --cor-texto: #17211c;
+  --cor-texto-suave: #46544c;
+  --cor-borda: #c5d1c9;
+  --cor-borda-campo: #66786d;
+  --cor-foco: #0b5cad;
+  --cor-erro: #a11a12;
+
+  --cor-ok-fundo: #dff3e5;
+  --cor-ok-texto: #0f4a25;
+  --cor-indisp-fundo: #f4e3e1;
+  --cor-indisp-texto: #7a1a14;
+
+  --fonte: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fonte-titulo: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+
+  --raio: 0.5rem;
+  --largura-max: 72rem;
+  --altura-toque: 2.75rem;
+}

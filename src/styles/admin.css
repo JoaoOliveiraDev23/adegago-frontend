@@ -1,0 +1,192 @@
+.pagina-cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.pagina-cabecalho h1 {
+  margin: 0;
+}
+
+.texto-apoio {
+  color: var(--cor-texto-suave);
+}
+
+.migalha {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.regiao-aviso:empty {
+  display: none;
+}
+
+/* Painel */
+.indicadores {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  margin: 1.25rem 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.indicador {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-left: 6px solid var(--verde);
+  border-radius: var(--raio);
+}
+
+.indicador p {
+  margin: 0;
+}
+
+.indicador-valor {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.indicador-rotulo {
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+.atalhos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Listagem de produtos: tabela em telas largas, cartões em telas estreitas */
+.lista-desktop {
+  display: none;
+}
+
+.lista-mobile {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 64em) {
+  .lista-desktop {
+    display: block;
+  }
+  .lista-mobile {
+    display: none;
+  }
+}
+
+.tabela-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--cor-borda);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabela tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.tabela thead th {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+  font-size: 0.875rem;
+}
+
+.tabela tbody th {
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.tabela .etiqueta {
+  margin-top: 0;
+}
+
+.tabela .preco-atual {
+  font-size: 1.1rem;
+}
+
+.tabela-cat {
+  display: block;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--cor-texto-suave);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cartao-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.cartao-admin h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 1.1rem;
+}
+
+.cartao-admin .botao-peq {
+  min-height: var(--altura-toque);
+}
+
+.cartao-admin .etiqueta {
+  margin-top: 0;
+}
+
+/* Formulário de produto */
+.form-cartao {
+  max-width: 40rem;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.form-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 30em) {
+  .form-acoes .botao {
+    flex: 1 1 100%;
+  }
+}

@@ -5,7 +5,7 @@
   "description": "Frontend do AdegaGo: catálogo digital de produtos para adegas (Projeto Integrador).",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },

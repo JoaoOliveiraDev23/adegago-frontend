@@ -8,13 +8,22 @@ import { focarPrimeiroCampoComErro, validarLogin } from '../../utils/validacao.j
 
 export default function LoginPage() {
   useTituloPagina('Login administrativo');
-  const { autenticado, entrar } = useAuth();
+  const { autenticado, carregando, entrar } = useAuth();
   const local = useLocation();
   const [valores, setValores] = useState({ email: '', senha: '' });
   const [erros, setErros] = useState({});
   const [enviando, setEnviando] = useState(false);
   const [erroGeral, setErroGeral] = useState('');
 
+  if (carregando) {
+    return (
+      <div className="login">
+        <p className="login-cartao" role="status">
+          Verificando sessão…
+        </p>
+      </div>
+    );
+  }
   if (autenticado) return <Navigate to={local.state?.de ?? '/admin'} replace />;
 
   function alterar(e) {
@@ -35,8 +44,8 @@ export default function LoginPage() {
     setErroGeral('');
     try {
       await entrar(valores.email, valores.senha);
-    } catch {
-      setErroGeral('Não foi possível entrar. Tente novamente.');
+    } catch (erroLogin) {
+      setErroGeral(erroLogin.message || 'Não foi possível entrar. Tente novamente.');
       setEnviando(false);
     }
   }
@@ -51,9 +60,9 @@ export default function LoginPage() {
         </Link>
         <h1 tabIndex={-1}>Acesso administrativo</h1>
 
-        <p className="aviso aviso-info">
-          <strong>Login simulado.</strong> Nesta demonstração, qualquer e-mail válido com senha de pelo
-          menos 6 caracteres abre o painel. Isso não é segurança: a proteção real virá com o backend.
+        <p className="texto-apoio">
+          Área restrita ao responsável pelo estabelecimento. Clientes não precisam de login para
+          consultar o catálogo.
         </p>
 
         {(temErros || erroGeral) && (

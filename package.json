@@ -2,14 +2,17 @@
   "name": "adegago-frontend",
   "private": true,
   "version": "0.1.0",
-  "description": "Frontend do AdegaGo: catálogo digital de produtos para adegas (Projeto Integrador).",
+  "description": "Frontend do AdegaGo: catálogo digital de produtos para adegas (Projeto Integrador). Usa Firebase (Firestore + Authentication).",
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:emulador": "vite --mode emulador",
+    "build:emulador": "vite build --mode emulador"
   },
   "dependencies": {
+    "firebase": "^13.3.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4"

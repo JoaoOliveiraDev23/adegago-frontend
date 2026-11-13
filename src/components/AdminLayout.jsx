@@ -12,8 +12,8 @@ export default function AdminLayout() {
   useFocoAoNavegar(principal);
   const fechar = () => setMenuAberto(false);
 
-  function aoSair() {
-    sair();
+  async function aoSair() {
+    await sair();
     navigate('/admin/login', { replace: true });
   }
 
@@ -56,19 +56,13 @@ export default function AdminLayout() {
               </Link>
             </li>
           </ul>
-          <p className="admin-usuario">Sessão simulada: {usuario?.email}</p>
+          <p className="admin-usuario">Conectado como {usuario?.email}</p>
           <button type="button" className="botao botao-claro" onClick={aoSair}>
             Sair
           </button>
         </nav>
       </header>
       <div className="admin-corpo">
-        <section className="faixa-demo" aria-label="Aviso de demonstração">
-          <p>
-            Modo demonstração: o acesso é simulado e não oferece proteção real. Os dados são fictícios e
-            ficam apenas na memória do navegador.
-          </p>
-        </section>
         <main id="conteudo" ref={principal} tabIndex={-1} className="admin-main">
           <Outlet />
         </main>

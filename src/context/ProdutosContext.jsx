@@ -24,8 +24,8 @@ export function ProdutosProvider({ children }) {
       const [listaProdutos, listaCategorias] = await Promise.all([listarProdutos(), listarCategorias()]);
       setProdutos(listaProdutos);
       setCategorias(listaCategorias);
-    } catch {
-      setErro('Não foi possível carregar os produtos. Tente novamente.');
+    } catch (erroCarga) {
+      setErro(erroCarga.message || 'Não foi possível carregar os produtos. Tente novamente.');
     } finally {
       setCarregando(false);
     }

@@ -22,7 +22,7 @@ export default function App() {
             <Route path="*" element={<NaoEncontradoPage />} />
           </Route>
 
-          {/* Área administrativa (navegação simulada; sem proteção real) */}
+          {/* Área administrativa (o React só esconde as telas; a proteção real está nas Security Rules do Firestore) */}
           <Route path="/admin/login" element={<LoginPage />} />
           <Route
             path="/admin"

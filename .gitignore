@@ -1,5 +1,20 @@
+# Dependências e build
 node_modules/
 dist/
+
+# Variáveis de ambiente locais (use .env.example como modelo)
 .env
-.envgit status
+.env.*
 !.env.example
+!.env.emulador
+
+# Logs e arquivos de sistema
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea/

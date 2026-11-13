@@ -53,7 +53,7 @@ export default function PublicLayout() {
           <p>
             <strong>AdegaGo</strong> é um catálogo de consulta: não vendemos nem recebemos pedidos por aqui.
           </p>
-          <p>Projeto Integrador universitário. Os produtos e preços exibidos são fictícios.</p>
+          <p>Projeto Integrador universitário. As informações são mantidas pelo próprio estabelecimento.</p>
         </div>
       </footer>
     </>

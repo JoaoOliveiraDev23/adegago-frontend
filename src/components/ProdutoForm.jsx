@@ -35,8 +35,8 @@ export default function ProdutoForm({ inicial, categorias, rotuloEnviar, onSalva
     setErroGeral('');
     try {
       await onSalvar(valoresParaProduto(valores));
-    } catch {
-      setErroGeral('Não foi possível salvar o produto. Tente novamente.');
+    } catch (erroSalvar) {
+      setErroGeral(erroSalvar.message || 'Não foi possível salvar o produto. Tente novamente.');
       setEnviando(false);
     }
   }

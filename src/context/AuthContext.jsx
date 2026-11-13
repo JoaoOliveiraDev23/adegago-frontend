@@ -1,21 +1,36 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { autenticarSimulado } from '../services/authService.js';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { entrar as entrarNoServico, observarSessao, sair as sairDoServico } from '../services/authService.js';
 
-// SESSÃO SIMULADA: o estado vive apenas em memória e NÃO protege nada de verdade.
-// Qualquer pessoa pode abrir /admin/login e "entrar". A proteção real será feita no backend.
+// Sessão real (Firebase Authentication). `carregando` fica true até o Firebase informar se já
+// existe uma sessão salva neste navegador — assim a tela não redireciona para o login por engano.
+// Se a sessão expirar ou for encerrada, a observação abaixo atualiza o estado automaticamente.
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
+  const [carregando, setCarregando] = useState(true);
+
+  useEffect(
+    () =>
+      observarSessao((novoUsuario) => {
+        setUsuario(novoUsuario);
+        setCarregando(false);
+      }),
+    [],
+  );
 
   const entrar = useCallback(async (email, senha) => {
-    setUsuario(await autenticarSimulado(email, senha));
+    setUsuario(await entrarNoServico(email, senha));
   }, []);
-  const sair = useCallback(() => setUsuario(null), []);
+
+  const sair = useCallback(async () => {
+    await sairDoServico();
+    setUsuario(null);
+  }, []);
 
   const valor = useMemo(
-    () => ({ usuario, autenticado: usuario !== null, entrar, sair }),
-    [usuario, entrar, sair],
+    () => ({ usuario, autenticado: usuario !== null, carregando, entrar, sair }),
+    [usuario, carregando, entrar, sair],
   );
   return <AuthContext.Provider value={valor}>{children}</AuthContext.Provider>;
 }

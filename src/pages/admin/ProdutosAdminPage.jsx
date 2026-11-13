@@ -36,8 +36,8 @@ export default function ProdutosAdminPage() {
     try {
       await atualizar(produto.id, { disponivel: novo });
       informar(`“${produto.nome}” marcado como ${novo ? 'disponível' : 'indisponível'}.`);
-    } catch {
-      informar('Não foi possível alterar a disponibilidade. Tente novamente.', 'erro');
+    } catch (erroOperacao) {
+      informar(erroOperacao.message || 'Não foi possível alterar a disponibilidade. Tente novamente.', 'erro');
     }
   }
 
@@ -47,9 +47,9 @@ export default function ProdutosAdminPage() {
       await atualizar(produto.id, dados);
       setDialogo(null);
       informar(`Preço e promoção de “${produto.nome}” atualizados.`);
-    } catch {
+    } catch (erroOperacao) {
       setDialogo(null);
-      informar('Não foi possível atualizar o preço. Tente novamente.', 'erro');
+      informar(erroOperacao.message || 'Não foi possível atualizar o preço. Tente novamente.', 'erro');
     }
   }
 
@@ -59,9 +59,9 @@ export default function ProdutosAdminPage() {
       await excluir(produto.id);
       setDialogo(null);
       informar(`Produto “${produto.nome}” excluído.`, 'sucesso', true);
-    } catch {
+    } catch (erroOperacao) {
       setDialogo(null);
-      informar('Não foi possível excluir o produto. Tente novamente.', 'erro');
+      informar(erroOperacao.message || 'Não foi possível excluir o produto. Tente novamente.', 'erro');
     }
   }
 
@@ -105,8 +105,7 @@ export default function ProdutosAdminPage() {
         </Link>
       </div>
       <p className="texto-apoio">
-        As alterações valem apenas durante esta demonstração: os dados são fictícios e voltam ao inicial
-        ao recarregar a página.
+        As alterações são salvas no banco de dados (Cloud Firestore) e aparecem no catálogo público.
       </p>
 
       <div ref={regiaoAviso} tabIndex={-1} role="status" className="regiao-aviso">
